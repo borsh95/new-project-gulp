@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html class="page {{ classPage|length ? classPage : '' }}" lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="ArtBro">
+	<title>{{ title|length ? title : 'New' }}</title>
+	<!-- main css -->
+	<link rel="stylesheet" href="./assets/style/css/style.css">
+</head>
+
+<body>
+	<div class="site">
+		{# ------ HEADER ----- #}
+		{% block header %}
+			{% include "../organisms/header.twig" %}
+		{% endblock %}
+		
+		{# ------ BREADCRUMBS ----- #}
+		{% block breadcrumbs %}{% endblock %}
+
+		<!-- CONTENT WRAP -->
+		<div class="site__content">
+			{% block content %}{% endblock %}
+		</div>
+
+		{# ------ FOOTTER ----- #}
+		{% block footer %}
+			{% include "../organisms/footer.twig" %}
+		{% endblock %}
+
+		{# ------ COMMON ----- #}
+		{% block common %}{% endblock %}
+	</div>
+
+	{# ------ SCRIPTS ----- #}
+	{% block scripts %}
+		<!-- main -->
+		<script src="assets/js/main.js"></script>
+	{% endblock %}
+</body>
+
+</html>

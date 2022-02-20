@@ -1,0 +1,55 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// spacing
+$spacing-side: 30px;
+
+// font-size
+$fz: 16px;
+
+// colors
+$color-primary: #686868;
+$color-secondary: #1a676d;
+$color-secondary-alpha: rgba(26, 103, 109, 0.8);
+
+$color-danger: #ce6363;
+$color-succes: #6fa67b;
+
+$color-text: $color-primary;
+$color-link: $color-primary;
+
+$color-bg-main: #fff;
+
+// durations
+$duration: 0.3s;
+
+:root {
+	/* spacings */
+	--spacing-side: #{$spacing-side};
+
+	/*font-family*/
+	--fm-1: "Montserrat", sans-serif;
+
+	/*colors*/
+	--color-primary: #{$color-primary};
+	--color-secondary: #{$color-secondary};
+	--color-secondary-alpha: #{$color-secondary-alpha};
+
+	--color-danger: #{$color-danger};
+	--color-succes: #{$color-succes};
+
+	--color-text: #{$color-text};
+	--color-link: #{$color-link};
+
+	--color-bg-main: #{$color-bg-main};
+
+	--basic-black: #000;
+	--basick-dark: #333;
+	--basick-white: #fff;
+
+	@include table {
+		--spacing-side: 20px;
+	}
+
+	@include mobile {
+		--spacing-side: 10px;
+	}
+}

@@ -1,0 +1,102 @@
+@mixin desctop {
+	@media (max-width: #{$desctop}px) {
+		@content;
+	}
+}
+
+@mixin desctop-mid {
+	@media (max-width: #{$desctop-mid}px) {
+		@content;
+	}
+}
+
+@mixin desctop-min {
+	@media (max-width: #{$desctop-min}px) {
+		@content;
+	}
+}
+
+@mixin table {
+	@media (max-width: #{$table}px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: #{$mobile}px) {
+		@content;
+	}
+}
+
+@mixin tel {
+	@media (max-width: #{$tel}px) {
+		@content;
+	}
+}
+
+@mixin from($min_width) {
+	@media screen and (min-width: #{$min_width}px) {
+		@content;
+	}
+}
+
+@mixin to($max_width) {
+	@media screen and (max-width: #{$max_width}px) {
+		@content;
+	}
+}
+
+@mixin reset-link {
+	font-weight: inherit;
+	text-decoration: none;
+	color: inherit;
+
+	@content;
+}
+
+@mixin reset-list {
+	padding-left: 0;
+	&,
+	ul {
+		padding-left: 0;
+	}
+
+	li {
+		list-style-type: none;
+	}
+
+	@content;
+}
+
+@mixin ratio($height, $width) {
+	&::before {
+		content: "";
+		display: block;
+		padding-bottom: pr($height, $width);
+	}
+	@content;
+}
+
+@mixin fit-cover($position: center) {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: $position;
+	@content;
+}
+
+@mixin fit-contain($position: center) {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: $position;
+	@content;
+}
+
+@mixin line-clamp($value: 4) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $value;
+	overflow: hidden;
+	@content;
+}

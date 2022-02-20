@@ -1,0 +1,94 @@
+html,
+body {
+	font-family: var(--fm-1);
+	font-size: $fz;
+	font-weight: 400;
+	color: var(--color-text);
+}
+
+body {
+	height: 1px;
+	min-height: 100vh;
+	scrollbar-color: var(--scroll-thumb-color) var(--scroll-bar-color); /* «цвет ползунка» «цвет полосы скроллбара» */
+	scrollbar-width: thin; /* толщина */
+}
+
+::-webkit-scrollbar {
+	width: 0.6rem;
+	height: 0.6rem;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--color-primary);
+	border-radius: 0.5em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: lighten($color-primary, 10%);
+}
+
+/*--------------------------------Common--------------------------------*/
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: var(--spacing-side);
+	padding-right: var(--spacing-side);
+	width: 100%;
+	max-width: 1230px;
+
+	@include table {
+		max-width: 768px;
+	}
+
+	@include mobile {
+		max-width: 100%;
+	}
+}
+
+.site {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+
+	&__content {
+		padding: rem(65px) 0 rem(80px);
+		flex: 1;
+
+		h1,
+		.h1 {
+			margin-bottom: 65px;
+		}
+
+		.bread-crumb + & {
+			padding-top: 48px;
+		}
+
+		.header--bg_transparent ~ & {
+			padding-top: 0;
+		}
+
+		@include desctop-min {
+			padding: 3.5rem 0 7rem;
+
+			h1 {
+				margin-bottom: 50px;
+			}
+		}
+
+		@include table {
+			padding: 2.5rem 0 5rem;
+
+			.bread-crumb + & {
+				padding-top: 15px;
+			}
+		}
+
+		@include mobile {
+			padding: rem(20px) 0 4rem;
+			h1 {
+				margin-bottom: 35px;
+			}
+		}
+	}
+}

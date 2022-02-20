@@ -1,0 +1,15 @@
+@function rubberSize($minW, $maxW, $minScrin, $maxScrin) {
+	@return calc(#{$minW}px + (#{$maxW} - #{$minW}) * ((100vw - #{$minScrin}px) / (#{$maxScrin} - #{$minScrin})));
+}
+
+@function rem($value) {
+	@return #{floor(($value / $fz) * 100) / 100}rem;
+}
+
+@function em($childSize, $parentSize) {
+	@return #{floor($childSize / $parentSize * 100) / 100}em;
+}
+
+@function pr($childSize, $parentSize) {
+	@return #{floor($childSize / $parentSize * 100000) / 1000 * 1%};
+}

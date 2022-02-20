@@ -1,0 +1,14 @@
+{% set baseClass = class.base|default('header') %}
+{% set resultClass = createBemClass(baseClass, _context.class) %}
+{% set attrss = "" %}
+
+{% if attrs %}
+{% for key, value in attrs  %}
+{% set attrss = " " ~ attrss ~ key ~ "=" ~ value %}
+{% endfor %}
+{% endif %}
+
+<!-- HEADER -->
+<header class="{{ resultClass }}" {{ attrss }}>
+	Header
+</header>

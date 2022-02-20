@@ -1,0 +1,53 @@
+/*==================== SPACINGS ====================*/
+
+// margins
+$m: (
+	m: "margin",
+	mt: "margin-top",
+	mr: "margin-right",
+	mb: "margin-bottom",
+	ml: "margin-left",
+);
+
+$p: (
+	p: "padding",
+	pt: "padding-top",
+	pr: "padding-right",
+	pb: "padding-bottom",
+	pl: "padding-left",
+);
+
+@mixin spacing($s) {
+	@each $class, $prop in $s {
+		.#{$class}-auto {
+			#{$prop}: auto;
+		}
+
+		@for $i from 0 through 100 {
+			@if $i % 4 == 0 {
+				.#{$class}-#{$i} {
+					#{$prop}: #{$i}px !important;
+				}
+			}
+		}
+
+		@each $break, $value_break in $breakpoints {
+			@media (max-width: $value_break) {
+				.#{$class}-#{$break}-auto {
+					#{$prop}: auto !important;
+				}
+
+				@for $i from 0 through 100 {
+					@if $i % 4 == 0 {
+						.#{$class}-#{$break}-#{$i} {
+							#{$prop}: #{$i}px !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include spacing($m);
+@include spacing($p);

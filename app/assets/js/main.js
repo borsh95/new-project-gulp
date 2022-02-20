@@ -1,0 +1,5 @@
+"use strict";
+
+var a = [3, 3, 3];
+[].concat(a);
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbImEiXSwibWFwcGluZ3MiOiI7O0FBQUEsSUFBQUEsQ0FBQSxHQUFBLENBQUEsQ0FBQSxFQUFBLENBQUEsRUFBQSxDQUFBLENBQUE7QUFFQSxVQUFBQSxDQUFBIiwiZmlsZSI6Im1haW4uanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBhID0gWzMsIDMsIDNdO1xyXG5cclxuWy4uLmFdIl19

@@ -1,0 +1,168 @@
+:root {
+	--column: 12;
+	--air-l: 30px;
+	--air-b: 20px;
+}
+
+@mixin row-flex {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 0 calc(var(--air-b) * -1) calc(var(--air-l) * -1);
+}
+
+@mixin col {
+	margin: 0 0 var(--air-b) var(--air-l);
+	word-wrap: break-word;
+}
+
+@mixin size($n) {
+	width: calc(100% / var(--column) * #{$n} - var(--air-l));
+}
+
+.row {
+	@include row-flex();
+}
+
+.col {
+	@include col();
+}
+
+@for $i from 1 through 12 {
+	.col-#{$i} {
+		width: calc(100% / 12 * #{$i} - var(--air-l));
+	}
+}
+
+@include desctop-min {
+	@for $i from 1 through 12 {
+		.col-lg-#{$i} {
+			width: calc(100% / 12 * #{$i} - var(--air-l));
+		}
+	}
+}
+
+@include table {
+	@for $i from 1 through 12 {
+		.col-md-#{$i} {
+			width: calc(100% / 12 * #{$i} - var(--air-l));
+		}
+	}
+}
+
+@include mobile {
+	@for $i from 1 through 12 {
+		.col-sm-#{$i} {
+			width: calc(100% / 12 * #{$i} - var(--air-l));
+		}
+	}
+}
+
+@include tel {
+	@for $i from 1 through 12 {
+		.col-xs-#{$i} {
+			width: calc(100% / 12 * #{$i} - var(--air-l));
+		}
+	}
+}
+
+.content-wrap {
+	padding: 4rem 0 6rem;
+	flex: 1;
+
+	h1 {
+		margin-bottom: 65px;
+	}
+
+	.bread-crumb + & {
+		padding-top: 48px;
+	}
+
+	@include desctop-min {
+		padding: 3.5rem 0 7rem;
+
+		h1 {
+			margin-bottom: 50px;
+		}
+	}
+
+	@include table {
+		padding: 2.5rem 0 5rem;
+
+		.bread-crumb + & {
+			padding-top: 15px;
+		}
+	}
+
+	@include mobile {
+		h1 {
+			margin-bottom: 35px;
+		}
+	}
+}
+
+/*section*/
+.section {
+	padding: 80px 0 20px;
+
+	&__title {
+		margin-bottom: 65px;
+	}
+
+	&__btn {
+		--h: #{getEm(49, 14)};
+		--fz: 14px;
+		margin: 50px auto 0;
+		padding-left: getEm(42, 14);
+		padding-right: getEm(42, 14);
+	}
+
+	@include desctop-min {
+		padding: 60px 0 20px;
+
+		&__title {
+			margin-bottom: 55px;
+		}
+
+		&__btn {
+			--height: 60px;
+			--fz: 16px;
+			margin: 55px auto 0;
+		}
+	}
+
+	@include table {
+		padding: 40px 0 20px;
+
+		&__btn {
+			--height: 51px;
+			--fz: 12px;
+			margin: 50px auto 0;
+		}
+	}
+
+	@include mobile {
+		&__title {
+			margin-bottom: 45px;
+		}
+
+		&__btn {
+			--fz: 12px;
+			--h: 40px;
+			margin: 43px auto 0;
+		}
+	}
+}
+
+.col-count-2 {
+	column-count: 2;
+
+	& > * {
+		break-inside: avoid-column;
+	}
+}
+
+.col-count-sm-1 {
+	@include mobile {
+		column-count: 1;
+	}
+}

@@ -1,0 +1,17 @@
+//breakpoints
+$desctop: 1920;
+$desctop-mid: 1450;
+$desctop-min: 1230;
+$table: 1024;
+$mobile: 768;
+$tel: 480;
+
+$breakpoints: (
+	"xl": #{$desctop-mid}px,
+	"lg": #{$desctop-min}px,
+	"md": #{$table}px,
+	"sm": #{$mobile}px,
+	"xs": #{$tel}px,
+) !default;
+
+$grid-columns: 12 !default;
