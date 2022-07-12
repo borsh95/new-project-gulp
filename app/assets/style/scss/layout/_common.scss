@@ -1,0 +1,104 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ COMMON LAYOUT ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* btns */
+.btns {
+	display: flex;
+	align-items: center;
+
+	& > * {
+		margin-right: 20px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&--multiline {
+		--air-l: 28px;
+		--air-b: 16px;
+
+		@include row-flex;
+
+		& > * {
+			@include col;
+			margin-right: 0;
+		}
+	}
+}
+
+.items {
+	--air-l: 24px;
+	--air-b: 24px;
+
+	@include row-flex;
+
+	& > * {
+		@include col;
+	}
+}
+
+/*section*/
+.section {
+	padding: 80px 0 20px;
+
+	&__title {
+		margin-bottom: 65px;
+	}
+
+	&__btn {
+		--h: #{getEm(49, 14)};
+		--fz: 14px;
+		margin: 50px auto 0;
+		padding-left: getEm(42, 14);
+		padding-right: getEm(42, 14);
+	}
+
+	@include desctop-min {
+		padding: 60px 0 20px;
+
+		&__title {
+			margin-bottom: 55px;
+		}
+
+		&__btn {
+			--height: 60px;
+			--fz: 16px;
+			margin: 55px auto 0;
+		}
+	}
+
+	@include table {
+		padding: 40px 0 20px;
+
+		&__btn {
+			--height: 51px;
+			--fz: 12px;
+			margin: 50px auto 0;
+		}
+	}
+
+	@include mobile {
+		&__title {
+			margin-bottom: 45px;
+		}
+
+		&__btn {
+			--fz: 12px;
+			--h: 40px;
+			margin: 43px auto 0;
+		}
+	}
+}
+
+.col-count-2 {
+	column-count: 2;
+
+	& > * {
+		break-inside: avoid-column;
+	}
+}
+
+.col-count-sm-1 {
+	@include mobile {
+		column-count: 1;
+	}
+}

@@ -1,1 +1,198 @@
 /*==================== TYPOGRAPHY ====================*/
+:root {
+	--fz-h1: 36px;
+	--fz-h2: 36px;
+	--fz-h3: 20px;
+	--fz-h4: 18px;
+
+	@include desctop-min {
+		--fz-h1: 32px;
+		--fz-h2: 32px;
+	}
+
+	@include desctop-min {
+		--fz-h1: 28px;
+		--fz-h2: 28px;
+		--fz-h3: 18px;
+		--fz-h4: 16px;
+	}
+
+	@include mobile {
+		--fz-h1: 18px;
+		--fz-h2: 18px;
+		--fz-h3: 16px;
+		--fz-h4: 16px;
+	}
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+	margin: 1.3em 0 em(29, 20);
+	font-weight: 700;
+	line-height: em(45, 36);
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+h1,
+.h1 {
+	font-size: var(--fz-h1);
+}
+h2,
+.h2 {
+	font-size: var(--fz-h2);
+}
+h3,
+.h3 {
+	font-size: var(--fz-h3);
+}
+h4,
+.h4 {
+	font-size: var(--fz-h4);
+}
+
+ol,
+ul,
+ol,
+p {
+	margin-bottom: em(16, 14);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+ul,
+ol {
+	padding-left: 1.5em;
+
+	li {
+		margin-bottom: 0.4em;
+		list-style-type: disc;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+}
+
+a {
+	color: var(--color-link);
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.content {
+	font: 400 1em /#{(34/18)} var(--fm-2);
+
+	h2,
+	.h2,
+	h3,
+	.h3,
+	h4,
+	.h4,
+	h5,
+	.h5 {
+		margin: em(28, 20) 0 getEm(35, 20);
+		color: var(--color-primary);
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		& + ul,
+		& + ol,
+		& + p {
+			margin-top: 0;
+		}
+	}
+
+	ul,
+	ol {
+		padding-left: 1.3em;
+
+		li {
+			margin-bottom: 0.5em;
+			list-style-type: disc;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	ol {
+		li {
+			list-style-type: decimal;
+		}
+	}
+
+	p,
+	ul,
+	ol {
+		margin-top: getEm(28, 16);
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	a {
+		font-weight: 600;
+		color: var(--color-link);
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&--air {
+		h2,
+		h3,
+		h4,
+		h5,
+		ul,
+		ol,
+		p {
+			margin-top: getEm(26, 16);
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	@include tel {
+		line-height: (20/14);
+	}
+}
+
+.text {
+	font-size: 14px;
+	line-height: (25/14);
+
+	h2,
+	.h2,
+	h3,
+	.h3 {
+		margin: 1.2em 0 0.8em;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

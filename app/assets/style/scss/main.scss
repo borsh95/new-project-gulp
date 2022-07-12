@@ -11,6 +11,9 @@
 @import "base/spacings";
 @import "base/typography";
 
+//layout
+@import "layout/grid";
+
 // vendors
 
 // components
@@ -18,9 +21,9 @@
 @import "components/atoms";
 @import "components/interface";
 @import "components/molecules";
+@import "components/blocks";
 
 //layout
-@import "layout/grid";
 @import "layout/header";
 @import "layout/footer";
 

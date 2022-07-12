@@ -172,6 +172,18 @@ function svgSprites() {
 		.pipe(dest('app/assets/img/icons/sprite'))
 }
 
+function svgSpritesUI() {
+	return src('app/assets/img/icons/ui/all/*.svg')
+		.pipe(svgSprite({
+			mode: {
+				stack: {
+					sprite: '../sprite.svg'
+				}
+			}
+		}))
+		.pipe(dest('app/assets/img/icons/ui'))
+}
+
 function browsersync() {
 	browserSync.init({
 		server: {
@@ -202,12 +214,15 @@ function images() {
 
 function scripts() {
 	return src([
-		'app/assets/js/index.js'
+		'app/assets/js/base.js',
+		'app/assets/js/utils/*.js',
+		'app/assets/js/plugins/*.js',
+		'app/assets/js/index.js',
 	])
 		.pipe(sourcemaps.init())
 		.pipe(concat('main.js'))
 		//.pipe(uglify())
-		.pipe(babel())
+		//.pipe(babel())
 		.pipe(sourcemaps.write())
 		.pipe(dest('app/assets/js'))
 		.pipe(browserSync.stream())
@@ -215,7 +230,10 @@ function scripts() {
 
 function scriptsBuild() {
 	return src([
-		'app/assets/js/index.js'
+		'app/assets/js/base.js',
+		'app/assets/js/utils/*.js',
+		'app/assets/js/plugins/*.js',
+		'app/assets/js/index.js',
 	])
 		.pipe(concat('main.js'))
 		.pipe(babel())
@@ -259,7 +277,8 @@ function watching() {
 	watch(['app/templates/**/*.twig'], compile);
 	watch(['app/assets/js/**/*.js', '!app/assets/js/main.js'], scripts);
 	watch(['app/*.html']).on('change', browserSync.reload);
-	watch(['app/assets/img/spriteSvg/unification/*.svg'], svgSprites);
+	watch(['app/assets/img/icons/sprite/all/*.svg'], svgSprites);
+	watch(['app/assets/img/icons/ui/all/*.svg'], svgSprites);
 }
 
 exports.compile = compile;
@@ -268,6 +287,7 @@ exports.styles = styles;
 exports.stylesBuild = stylesBuild;
 exports.scriptsBuild = scriptsBuild;
 exports.svgSprite = svgSprites;
+exports.svgSpritesUI = svgSpritesUI;
 exports.watching = watching;
 exports.browsersync = browsersync;
 exports.scripts = scripts;
@@ -276,4 +296,4 @@ exports.cleanDist = cleanDist;
 
 exports.build = series(cleanDist, compile, formaterHtml, images, build, stylesBuild, scriptsBuild);
 
-exports.default = parallel(compile, styles, scripts, svgSprites, browsersync, watching);
+exports.default = parallel(compile, styles, scripts, svgSprites, svgSpritesUI, browsersync, watching);
