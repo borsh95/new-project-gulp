@@ -6,8 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="ArtBro">
 	<title>{{ title|length ? title : 'New' }}</title>
+	<!-- uikit css -->
+	<link rel="stylesheet" href="assets/vendors/uikit/uikit.min.css">
+	<!-- swiper css -->
+	<link rel="stylesheet" href="assets/vendors/swiper/swiper-bundle.min.css">
 	<!-- main css -->
-	<link rel="stylesheet" href="./assets/style/css/style.css">
+	<link rel="stylesheet" href="assets/style/css/style.css">
 </head>
 
 <body>
@@ -36,6 +40,17 @@
 
 	{# ------ SCRIPTS ----- #}
 	{% block scripts %}
+		<!-- jquery -->
+		<script src="assets/vendors/jquery/jquery.min.js"></script>
+		<!-- jquery event move -->
+		<script src="assets/vendors/jquery/jquery.event.move.js"></script>
+		<!-- uikit js -->
+		<script src="assets/vendors/uikit/uikit-icons.min.js"></script>
+		<script src="assets/vendors/uikit/uikit.min.js"></script>
+		<!-- inputMask -->
+		<script src="assets/vendors/inputMask/inputMask.min.js"></script>
+		<!-- swiper bundle -->
+		<script src="assets/vendors/swiper/swiper-bundle.min.js"></script>
 		<!-- main -->
 		<script src="assets/js/main.js"></script>
 	{% endblock %}

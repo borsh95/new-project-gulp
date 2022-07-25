@@ -278,7 +278,7 @@ function watching() {
 	watch(['app/assets/js/**/*.js', '!app/assets/js/main.js'], scripts);
 	watch(['app/*.html']).on('change', browserSync.reload);
 	watch(['app/assets/img/icons/sprite/all/*.svg'], svgSprites);
-	watch(['app/assets/img/icons/ui/all/*.svg'], svgSprites);
+	watch(['app/assets/img/icons/ui/all/*.svg'], svgSpritesUI);
 }
 
 exports.compile = compile;

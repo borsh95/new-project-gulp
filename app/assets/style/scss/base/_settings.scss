@@ -11,7 +11,7 @@ $utilities: (
 		values: wrap "nowrap",
 	),
 	"flex-direction": (
-		property: display,
+		property: flex-direction,
 		responsive: false,
 		class: flex,
 		values: column "column-reverse" row row-reverse,
